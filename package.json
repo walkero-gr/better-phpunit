@@ -17,7 +17,8 @@
     ],
     "activationEvents": [
         "onCommand:better-phpunit.run",
-        "onCommand:better-phpunit.run-suite"
+        "onCommand:better-phpunit.run-suite",
+        "onCommand:better-phpunit.coverage-text"
     ],
     "main": "./src/extension",
     "contributes": {
@@ -33,6 +34,10 @@
             {
                 "command": "better-phpunit.run-previous",
                 "title": "Better PHPUnit: run previous"
+            },
+            {
+                "command": "better-phpunit.coverage-text",
+                "title": "Better PHPUnit: run with text coverage report"
             }
         ],
         "keybindings": [
@@ -71,6 +76,14 @@
                     ],
                     "default": null,
                     "description": "Absolute path for the PHPUnit XML configuration file"
+                },
+                "better-phpunit.coverageFilepath": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": null,
+                    "description": "Relative path for the generated Coverage files, based on the project folder. Ex: 'test/coverage'"
                 },
                 "better-phpunit.ssh.enable": {
                     "type": "boolean",

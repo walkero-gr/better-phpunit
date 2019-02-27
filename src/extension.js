@@ -41,6 +41,10 @@ module.exports.activate = function (context) {
         await runPreviousCommand();
     }));
 
+    disposables.push(vscode.commands.registerCommand('better-phpunit.coverage-text', async () => {
+        await vscode.commands.executeCommand('workbench.action.tasks.runTask', 'phpunit: run');
+    }));
+
     disposables.push(vscode.tasks.registerTaskProvider('phpunit', {
         provideTasks: () => {
             return [new vscode.Task(
